@@ -1,0 +1,156 @@
+<html>
+
+<head>
+    <title>Deposit</title>
+    <style>
+        h2 {
+            margin-left: 37.5%;
+            margin-bottom: 2%;
+            margin-top: 10%;
+            font-size: 30pt;
+            font-style: "font-family:calibri;";
+        }
+
+        .input_field {
+
+            margin-left: 40%;
+            margin-top: 1%;
+            font-size: 15px;
+            width: 32%;
+            padding-left: 0px;
+            padding-right: 0px;
+            padding-top: 2px;
+            padding-bottom: 2px;
+            text-align: center;
+        }
+
+        .heading {
+            margin-left: 42%;
+            margin-top: 10%;
+            font-style: "font-family:calibri;";
+        }
+
+        .error {
+            color: red;
+        }
+
+        #submit {
+            size: 35px;
+            padding-left: 17px;
+            padding-right: 17px;
+            padding-top: 3px;
+            padding-bottom: 3px;
+            margin-left: 52%;
+            margin-top: 1%;
+            font-size: 15px;
+        }
+
+        #submit:hover {
+            size: 35px;
+            cursor: pointer;
+            background-color: grey;
+            color: honeydew;
+            padding-left: 17px;
+            padding-right: 17px;
+            padding-top: 3px;
+            padding-bottom: 3px;
+            margin-left: 52%;
+            margin-top: 1%;
+            font-size: 15px;
+        }
+
+    </style>
+<script>
+        function validation() 
+	{
+        	if (document.getElementById("amount").value == "") 
+		{
+                	document.getElementById("amount_error").innerHTML = "Amount is empty!!";
+                	return false;
+            	}
+            	else 
+            	{
+                	let n = document.getElementById("amount").value;
+               		flag = 0;
+               		for(i = 0; i < n.length ; i++)
+               		{
+                    		if(n[i] == ".")
+                    		{
+                        		flag++;
+                        		if(!((n.lastIndexOf(".")-n.indexOf(".")) == 0))
+                        		{
+                            			document.getElementById("amount_error").innerHTML = "Invalid input type";
+                            			return false;
+                        		}
+                    		}
+                   		else
+                    		{
+                        		if(!(n[i] > -1 && n[i] < 10) && flag < 2)
+                        		{
+                            			document.getElementById("amount_error").innerHTML = "Amount must be in digits!!";
+                            			return false;
+                        		}
+                        
+				}
+               		}
+
+			if(parseFloat(n) <= 0)
+               		{
+               			document.getElementById("amount_error").innerHTML = "Amount must be greater than 0.0";
+                    		return false;
+              		}
+                
+		}
+
+            	if (document.getElementById("email").value == "") 
+		{
+               		document.getElementById("email_error").innerHTML = "Email is empty!!"
+                	document.getElementById("email").style.border = "1px solid red";
+               		return false;
+            	}
+            	else 
+		{
+                	let email = document.getElementById("email").value;
+                	if (!((email.indexOf("@") > 0) && (email.lastIndexOf(".") - email.indexOf("@")) > 1 && (email.length - email.lastIndexOf(".") > 0))) 
+			{
+                    	document.getElementById("email_error").innerHTML = "invalid Email!!";
+                    	return false;
+                	}
+
+            	}
+
+		if (document.getElementById("password").value == "") 
+		{
+                	document.getElementById("password_error").innerHTML = "Password is empty!!";
+                	return false;
+            	}
+        }
+    </script>
+
+</head>
+
+
+
+<body>
+    <form onsubmit="return validation()" action="Deposit" method="post">
+        <h1 class="heading">DEPOSIT YOUR FUNDS</h1>
+        <input class="input_field" name="amount" type="text" id="amount" placeholder="Enter Amount">
+        <span class="error" id="amount_error"></span>
+        <br>
+
+        <input class="input_field" name="email" type="text" id="email" placeholder="Email ID">
+        <span class="error" id="email_error"></span>
+        <br>
+	
+	 <input class="input_field" name="password" type="password" id="password" placeholder="Password">
+        <span class="error" id="password_error"></span>
+        <br>
+
+        <input type="Submit" value="Deposit" id="submit">
+
+    </form>
+
+</body>
+
+
+</html>

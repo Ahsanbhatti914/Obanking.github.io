@@ -1,0 +1,160 @@
+<html>
+
+<head>
+    <title>SignUp</title>
+    <style>
+        h2 {
+            margin-left: 38.5%;
+            margin-bottom: 2%;
+            margin-top: 10%;
+            font-size: 30pt;
+            font-style: "font-family:calibri;";
+        }
+
+        .input_field {
+
+            margin-left: 40%;
+            margin-top: 1%;
+            font-size: 15px;
+	    width: 25%;
+            padding-left: 0px;
+            padding-right: 0px;
+            padding-top: 2px;
+            padding-bottom: 2px;
+	    text-align: center;
+        }
+
+        .paragraph {
+            font-style: "font-family:calibri;";
+        }
+
+        .para {
+            margin-left: 40%;
+            margin-top: 1%;
+        }
+
+        .error {
+            color: red;
+        }
+
+        #submit {
+            size: 35px;
+            padding-left: 17px;
+            padding-right: 17px;
+            padding-top: 3px;
+            padding-bottom: 3px;
+            margin-left: 50%;
+            margin-top: 1%;
+            font-size: 15px;
+        }
+
+        #submit:hover {
+            size: 35px;
+            cursor: pointer;
+            background-color: grey;
+            color: honeydew;
+            padding-left: 17px;
+            padding-right: 17px;
+            padding-top: 3px;
+            padding-bottom: 3px;
+            margin-left: 50%;
+            margin-top: 1%;
+            font-size: 15px;
+        }
+
+        table{
+            margin-left: 40%;
+            margin-top: 1%;
+            font-size: 15px;
+        }
+
+    </style>
+
+    <script>
+        function validation() {
+
+
+            if (document.getElementById("firstname").value == "") {
+                document.getElementById("firstname_error").innerHTML = "First name is empty!!";
+                document.getElementById("firstname").style.border = "1px solid red";
+                return false;
+            }
+            if (document.getElementById("lastname").value == "") {
+                document.getElementById("lastname_error").innerHTML = "Last name is empty!!"
+                document.getElementById("lastname").style.border = "1px solid red";
+                return false;
+            }
+            if (document.getElementById("email").value == "") {
+                document.getElementById("email_error").innerHTML = "Email is empty!!"
+                document.getElementById("email").style.border = "1px solid red";
+                return false;
+            }
+            else
+            {
+                let email = document.getElementById("email").value;
+                if(!((email.indexOf("@") > 0) && (email.lastIndexOf(".")-email.indexOf("@"))>1 && (email.length - email.lastIndexOf(".") > 0) ))
+                {
+                    document.getElementById("email_error").innerHTML = "invalid Email!!";
+                    return false;
+                }
+                
+            }
+            if (document.getElementById("password").value == "") {
+                document.getElementById("password_error").innerHTML = "Pasword is empty!!"
+                document.getElementById("password").style.border = "1px solid red";
+                return false;
+            }
+            if (document.getElementById("confirm").value == "") {
+                document.getElementById("confirm").innerHTML = "Confirm Pasword is empty!!"
+                document.getElementById("confirm").style.border = "1px solid red";
+                return false;
+            }
+            if (document.getElementById("password").value != document.getElementById("confirm").value) {
+                document.getElementById("confirm_error").innerHTML = "Password not matched!!"
+                document.getElementById("confirm").style.border = "1px solid red";
+                return false;
+            }
+
+
+        }
+
+    </script>
+
+</head>
+
+
+
+<body>
+    <form onsubmit="return validation()" action="Signup" method="post">
+        <h2 class="paragraph">Create Your Account</h2>
+
+        <input class="input_field" type="text" name="firstname" id="firstname" placeholder="First Name">
+        <span class="error" name="error" id="firstname_error"></span>
+
+        <input class="input_field" type="text" name="lastname" id="lastname" placeholder="Last Name">
+        <span class="error" name="error" id="lastname_error"></span>
+
+        <input class="input_field" type="text" name="email" id="email" placeholder="Email ID">
+        <span class="error" name="error" id="email_error"></span>
+    
+        <input class="input_field" type="password" name="password" id="password" placeholder="Password">
+        <span class="error" name="error" id="password_error"></span>
+
+        <input class="input_field" type="password" name="confirm" id="confirm" placeholder="Confirm">
+        <span class="error" name="error" id="confirm_error"></span>
+
+        <input type="Submit" value="SignUp" name="Submit" id="submit">
+
+        <table>
+            <div class="para">
+                <td><p class="paragraph">Already have an account?</p></td><td><a href="Login.html">LogIn</a></td>
+            </div>
+        </table>
+        
+
+    </form>
+
+</body>
+
+
+</html>

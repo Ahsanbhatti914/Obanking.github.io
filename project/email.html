@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function validate()
+        {
+            if(event.key = "validate")
+            {
+                let email = document.getElementById("email").value;
+                //document.getElementById("err").innerHTML = email;
+
+                if(email.indexOf("@") > 0 && (email.lastIndexOf(".")-email.indexOf("@"))>1 && (email.length - email.lastIndexOf(".") > 0) )
+                {
+                    document.getElementById("err").innerHTML = "Valid Email";
+                }
+                else
+                {
+                    document.getElementById("err").innerHTML = "invalid Email!!!!";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    Email:<input type="text" id="email">
+    <button id="validate" onclick="validate()">Validate</button>
+    <div id="err"></div>
+</body>
+</html>

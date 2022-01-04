@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        .container {
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .heading
+        {
+            font-size: 1.2em;
+        }
+
+        .box {
+
+            border: 2px solid black;
+            border-radius: 3px;
+            width: 6.8%;
+            padding: 6.8%;
+            margin: 0.5%;
+            align-items: center;
+            display: flex;
+        }
+
+        .box:hover {
+
+            border: 2px solid black;
+            border-radius: 3px;
+            width: 6.8%;
+            padding: 6.8%;
+            margin: 0.5;
+            align-items: center;
+            display: flex;
+            cursor: pointer;
+            background-color: #C4C4C4;
+        }
+
+        #logout {
+            size: 35px;
+            padding-left: 17px;
+            padding-right: 17px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            margin-left: 45%;
+            font-size: 15px;
+            border: 2px solid black;
+        }
+
+        #logout:hover {
+            size: 35px;
+            cursor: pointer;
+            background-color: grey;
+            color: honeydew;
+            padding-left: 17px;
+            padding-right: 17px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            margin-left: 45%;
+            font-size: 15px;
+            border: 2px solid black;
+        }
+    </style>
+
+    <script>
+        function Goto(clicked) {
+            if (clicked == "deposit") 
+            {
+                window.location.href = "Deposit.html";
+            }
+            else if (clicked == "transfer") 
+            {
+                window.location.href = "Transfer.html";
+            }
+            else if (clicked == "withdraw") 
+            {
+                window.location.href = "Withdraw.html";
+            }
+            else if (clicked == "view_balance") 
+            {
+                window.location.href = "View_balance.html";
+            }
+            else if (clicked == "view_details") 
+            {
+                window.location.href = "View_details.html";
+            }
+            else if (clicked == "transaction_histroy") 
+            {
+                window.location.href = "Transaction_histroy.html";
+            }
+           
+        }
+    </script>
+
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <form onclick="Goto(this.id)" id="deposit" class="box" style="margin-left: 15%;">
+            <h2 class="heading">Deposit Funds</h2>
+        </form>
+        <form class="box" onclick="Goto(this.id)" id="transfer">
+            <h2 class="heading">Transfer Funds</h2>
+        </form>
+        <form class="box" onclick="Goto(this.id)" id="withdraw">
+            <h2 class="heading">Withdraw Funds</h2>
+        </form>
+        <form class="box" onclick="Goto(this.id)" id="view_balance" style="margin-left: 15%;">
+            <h2 class="heading">View Balance</h2>
+        </form>
+        <form class="box" onclick="Goto(this.id)" id="view_details">
+            <h2 class="heading">View Details</h2>
+        </form>
+        <form class="box" onclick="Goto(this.id)" id="transaction_histroy">
+            <h2 class="heading">Transaction Histroy</h2>
+        </form>
+        
+        
+    </div>
+    <form action="Logout" method="post">
+        <button name="logout" id="logout" onclick="Goto(this.id)">Log out</button>
+    </form>
+</body>
+
+</html>
